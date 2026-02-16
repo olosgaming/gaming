@@ -1,0 +1,4 @@
+python-chess
+fastapi
+uvicorn
+python-socketio
