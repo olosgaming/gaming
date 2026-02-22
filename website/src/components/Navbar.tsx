@@ -2,15 +2,36 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) return null;
+
+  const navLink = (href: string, label: string) => {
+    const isActive = pathname === href || pathname.startsWith(href + '/');
+    return (
+      <Link
+        href={href}
+        className={`relative text-[13px] font-bold transition-colors group ${
+          isActive ? 'text-white' : 'text-gray-400 hover:text-white'
+        }`}
+      >
+        {label}
+        <span
+          className={`absolute -bottom-1 left-0 right-0 mx-auto w-1 h-1 rounded-full bg-olos-blue transition-opacity ${
+            isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-40'
+          }`}
+        />
+      </Link>
+    );
+  };
   
   return (
     <nav className="fixed top-0 w-full z-[100] bg-[#0B1121]/95 backdrop-blur-sm border-b border-white/5 py-4">
@@ -22,8 +43,8 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/games" className="text-gray-400 hover:text-white transition-colors text-[13px] font-bold">Games</Link>
-            <Link href="/leaderboard" className="text-gray-400 hover:text-white transition-colors text-[13px] font-bold">Leaderboards</Link>
+            {navLink('/games', 'Games')}
+            {navLink('/leaderboard', 'Leaderboards')}
           </div>
         </div>
 

@@ -9,9 +9,9 @@ export default function Home() {
       {/* Hero Section - Strict Replication */}
       <section className="relative mx-auto mt-[83px] h-[633px] flex items-center justify-center px-[79px] pb-0 -mb-20 overflow-hidden">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 z-0 bg-[url('/olos-logo-3d.png')] bg-[length:100%_100%] bg-center bg-no-repeat scale-110 -translate-y-8" />
+        <div className="absolute inset-0 z-0 bg-[url('/olos-logo-3d.png')] bg-[length:contain] bg-[position:65%_center] bg-no-repeat scale-110 -translate-y-8 opacity-80" />
         {/* Overlay Layer */}
-        <div className="absolute inset-0 z-0 bg-[#030711]/20" />
+        <div className="absolute inset-0 z-0 bg-[#030711]/10" />
         
         <div className="relative z-10 max-w-[1567px] w-full h-full flex items-center justify-start -translate-y-8">
           
@@ -21,7 +21,7 @@ export default function Home() {
               Play, Complete, Win
             </h1>
             <p className="max-w-[500px] text-[18px] md:text-[20px] text-slate-400 font-medium mb-10 leading-relaxed">
-              Skill-based games where you complete levels, stake tokens, and win instantly.
+              Skill-based games where you complete 1v1, stake tokens, and win instantly.
             </p>
             
             <div className="flex flex-wrap items-center gap-[47px]">
@@ -40,8 +40,8 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="relative z-10 pt-20 pb-24 px-6 bg-[#020617]/50">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="relative z-10 pt-20 pb-24 bg-[#020617]/50">
+        <div className="max-w-[1567px] mx-auto px-8 lg:px-16">
           <h2 className="text-[#00d2ff] text-[15px] font-black uppercase tracking-[0.4em] mb-20 text-center">How It Works</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
@@ -65,8 +65,8 @@ export default function Home() {
       </section>
 
       {/* Featured Games Section */}
-      <section className="py-32 px-6">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-32">
+        <div className="max-w-[1567px] mx-auto px-8 lg:px-16">
           <div className="flex items-center justify-between mb-16 px-2">
             <h2 className="text-4xl md:text-[32px] font-black tracking-tight uppercase text-white font-sans">Featured Games</h2>
             <Link href="/games" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors font-bold text-sm group">
@@ -103,8 +103,8 @@ export default function Home() {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-32 px-6">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+      <section className="py-32">
+        <div className="max-w-[1567px] mx-auto px-8 lg:px-16 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           <Stat value="12.4K" label="Active Players" />
           <Stat value="48.2K" label="Matches Played" />
           <Stat value="1.2M" label="GVT Wagered" />
@@ -113,16 +113,18 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-40 px-6 text-center border-t border-white/5 mx-6">
+      <section className="py-40 text-center">
+        <div className="max-w-[1567px] mx-auto px-8 lg:px-16 border-t border-white/5">
         <h2 className="text-4xl md:text-[44px] font-black tracking-tighter mb-6 uppercase text-[#00d2ff]">Ready to Complete?</h2>
         <p className="text-gray-400 mb-10 text-lg font-medium">Join thousands of players staking and winning every day.</p>
         <Link href="/games" className="px-14 py-4 rounded-xl bg-olos-blue hover:bg-olos-cobalt text-white font-bold text-lg transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-blue-900/30">
           Start Playing
         </Link>
+        </div>
       </section>
 
-      <footer className="py-20 px-6 bg-[#010101]">
-        <div className="max-w-[1440px] mx-auto text-center text-gray-600 text-sm font-bold uppercase tracking-widest leading-relaxed">
+      <footer className="py-20 bg-[#010101]">
+        <div className="max-w-[1567px] mx-auto px-8 lg:px-16 text-center text-gray-600 text-sm font-bold uppercase tracking-widest leading-relaxed">
           © 2026 Olos Competitive Gaming. All rights reserved.
         </div>
       </footer>
