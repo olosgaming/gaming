@@ -19,7 +19,8 @@ export default function StakePage() {
   const [txState, setTxState] = useState<"idle" | "confirming" | "success" | "error">("idle");
 
   const isWeb3User = isConnected && address;
-  const isAuthed = isLoggedIn || isWeb3User;
+  // Strictly gate behind OLOS authentication
+  const isAuthed = isLoggedIn;
 
   async function handleStake() {
     if (!amount || isNaN(Number(amount))) return;

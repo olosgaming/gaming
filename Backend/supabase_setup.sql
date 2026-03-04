@@ -6,6 +6,7 @@ CREATE TABLE profiles (
   full_name text,
   avatar_url text,
   email text UNIQUE,
+  wallet_address text,
 
   CONSTRAINT username_length CHECK (char_length(username) >= 3)
 );

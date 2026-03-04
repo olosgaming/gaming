@@ -54,11 +54,6 @@ export default function Navbar() {
           {!isLoggedIn ? (
             // ── LOGGED OUT ─────────────────────────────────────────
             <>
-              {/* Web3 path — always visible */}
-              <ConnectWalletButton variant="navbar" />
-
-              <div className="w-px h-6 bg-white/10" />
-
               {/* App store badges — desktop only */}
               <div className="hidden lg:flex items-center gap-3">
                 <Link href="#" className="hover:opacity-80 transition-opacity">
@@ -103,7 +98,7 @@ export default function Navbar() {
                 <span className="text-[13px] font-black tracking-tight text-white">1,000 GVT</span>
               </Link>
 
-              {/* Web3 wallet connect — visible when logged in too */}
+              {/* Web3 wallet connect — visible when logged in */}
               <ConnectWalletButton variant="navbar" />
 
               {/* Profile dropdown */}
@@ -152,7 +147,10 @@ export default function Navbar() {
                     </Link>
                     <div className="h-px bg-white/5 my-1" />
                     <button
-                      onClick={() => { logout(); router.push('/'); }}
+                      onClick={async () => { 
+                        await logout(); 
+                        router.push('/'); 
+                      }}
                       className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-red-400 hover:bg-red-400/5 transition-all"
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" /></svg>

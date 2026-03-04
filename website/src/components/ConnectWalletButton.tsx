@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
+import { useAuth } from "@/context/AuthContext";
 
 function shortenAddress(addr: string): string {
   return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
@@ -14,6 +15,7 @@ export function ConnectWalletButton({ variant = "navbar" }: ConnectWalletButtonP
   const { open } = useAppKit();
   const { address, isConnected } = useAppKitAccount();
   const { disconnect } = useDisconnect();
+  const { isLoggedIn } = useAuth();
 
   // ── CONNECTED STATE ──────────────────────────────────────────────
   if (isConnected && address) {

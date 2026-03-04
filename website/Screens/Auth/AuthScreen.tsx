@@ -24,7 +24,7 @@ export default function AuthScreen() {
     confirmPassword: ''
   });
 
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = '/api';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -185,10 +185,13 @@ export default function AuthScreen() {
               {isSignUp && (
                 <>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-white block">Full Name</label>
+                    <label htmlFor="fullName" className="text-sm font-bold text-white block">Full Name</label>
                     <input 
+                      id="fullName"
                       type="text" 
                       name="fullName"
+                      required
+                      autoComplete="name"
                       disabled={isLoading}
                       value={formData.fullName}
                       onChange={handleChange}
@@ -197,10 +200,13 @@ export default function AuthScreen() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-white block">Username</label>
+                    <label htmlFor="username" className="text-sm font-bold text-white block">Username</label>
                     <input 
+                      id="username"
                       type="text" 
                       name="username"
+                      required
+                      autoComplete="username"
                       disabled={isLoading}
                       value={formData.username}
                       onChange={handleChange}
@@ -212,10 +218,13 @@ export default function AuthScreen() {
               )}
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-white block">Email</label>
+                <label htmlFor="email" className="text-sm font-bold text-white block">Email</label>
                 <input 
+                  id="email"
                   type="email" 
                   name="email"
+                  required
+                  autoComplete="email"
                   disabled={isLoading}
                   value={formData.email}
                   onChange={handleChange}
@@ -225,10 +234,13 @@ export default function AuthScreen() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-white block">Password</label>
+                <label htmlFor="password" className="text-sm font-bold text-white block">Password</label>
                 <input 
+                  id="password"
                   type="password" 
                   name="password"
+                  required
+                  autoComplete={isSignUp ? "new-password" : "current-password"}
                   disabled={isLoading}
                   value={formData.password}
                   onChange={handleChange}
@@ -248,10 +260,13 @@ export default function AuthScreen() {
 
               {isSignUp && (
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-white block">Confirm Password</label>
+                  <label htmlFor="confirmPassword" className="text-sm font-bold text-white block">Confirm Password</label>
                   <input 
+                    id="confirmPassword"
                     type="password" 
                     name="confirmPassword"
+                    required={isSignUp}
+                    autoComplete="new-password"
                     disabled={isLoading}
                     value={formData.confirmPassword}
                     onChange={handleChange}

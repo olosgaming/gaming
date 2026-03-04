@@ -12,6 +12,9 @@ export function WalletDashboardBadge() {
   const { isConnected, address } = useAppKitAccount();
   const { isLoggedIn, user } = useAuth();
 
+  // Security Guard: Hide wallet completely if not logged into OLOS
+  if (!isLoggedIn) return null;
+
   // ── Web3 user: connected external wallet ──────────────────────────
   if (isConnected && address) {
     return (
