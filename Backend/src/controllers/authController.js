@@ -69,9 +69,13 @@ const login = async (req, res) => {
       user: data.user
     });
   } catch (error) {
+    console.error('[Backend] Login error:', error);
     res.status(401).json({
       success: false,
-      message: error.message || 'Login failed'
+      message: error.message === 'fetch failed' 
+        ? 'Backend failed to connect to Supabase. Check Render env variables.' 
+        : (error.message || 'Login failed'),
+      debug: process.env.NODE_ENV !== 'production' ? { stack: error.stack, name: error.name } : undefined
     });
   }
 };
