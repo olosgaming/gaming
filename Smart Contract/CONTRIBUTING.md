@@ -207,10 +207,6 @@ When reporting bugs, please include:
 - Participate in code reviews
 - Share ideas for improvements
 
-## License
-
-By contributing, you agree that your contributions will be licensed under the MIT License. See [LICENSE](./LICENSE) for details.
-
 ## Acknowledgments
 
 Thank you for contributing to making OLOS gaming more secure, efficient, and feature-rich!
