@@ -175,6 +175,3 @@ deployments/
 3. **Backend Services**: Implement result signing service
 4. **Monitoring**: Set up contract event monitoring
 5. **Analytics**: Track platform usage and statistics
-
-## License
-MIT License - See [LICENSE](./LICENSE) file for details.
